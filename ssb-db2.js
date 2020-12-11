@@ -15,9 +15,11 @@ const sbot = stack({
 })
 
 console.time("db2")
-sbot.db.get('%uQnNkrG/jlt7XbSOcDwaF8qWOqh1oFgn/tiVGcRhj9I=.sha256', (err, msg) => {
-  console.timeEnd("db2")
-  // FIXME: a tiny bit buggy, see https://github.com/ssb-ngi-pointer/ssb-fixtures/issues/4
-  console.log(msg)
-  sbot.close()
+sbot.db.onDrain('base', () => {
+  sbot.db.get('%uQnNkrG/jlt7XbSOcDwaF8qWOqh1oFgn/tiVGcRhj9I=.sha256', (err, msg) => {
+    console.timeEnd("db2")
+    // FIXME: a tiny bit buggy, see https://github.com/ssb-ngi-pointer/ssb-fixtures/issues/4
+    console.log(msg)
+    sbot.close()
+  })
 })
