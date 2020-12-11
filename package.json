@@ -1,0 +1,30 @@
+{
+  "name": "ssb-ngi-benchmark",
+  "description": "",
+  "version": "0.0.1",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "dependencies": {
+    "pull-stream": "^3.6.14",
+    "secret-stack": "6.3.1",
+    "ssb-backlinks": "^2.1.1",
+    "ssb-caps": "1.1.0",
+    "ssb-db": "20.3.0",
+    "ssb-db2": "^0.5.0",
+    "ssb-fixtures": "^2.2.0",
+    "ssb-private1": "^1.0.1",
+    "ssb-query": "^2.4.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "generate-data": "node node_modules/ssb-fixtures/lib/bin.js --messages 100000 --seed ngipointer && mkdir -p data/db2 && node node_modules/jitdb/copy-json-to-bipf-async.js data/flume/log.offset data/db2/log.bipf",
+    "aligned-block-fix": "patch -p0 < aligned-block-file-pr-11.diff",
+    "clean-indexes": "find ./data/flume/* ! -name log.offset -delete && rm -rf data/db2/indexes/",
+    "benchmark": "node ssb-db && node ssb-db2"
+  },
+  "author": "Anders Rune Jensen <arj03@protonmail.ch>",
+  "license": "LGPL-3.0"
+}
