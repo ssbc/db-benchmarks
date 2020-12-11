@@ -43,7 +43,7 @@ db2: 939.209ms
 ```
 roughly 4.9x speed up
 
-Indexing 10.000 messages:
+Indexing 100.000 messages:
 ```
 db1: 36.836s
 db2: 4.994s
