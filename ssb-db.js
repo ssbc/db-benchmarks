@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2021 Anders Rune Jensen
+//
+// SPDX-License-Identifier: LGPL-3.0-only
+
 const SecretStack = require('secret-stack')
 const config = require('ssb-config')
 const caps = require('ssb-caps')
