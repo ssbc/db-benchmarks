@@ -62,3 +62,16 @@ db1: 4:23.873 (m:ss.mmm)
 db2: 26.754s
 ```
 roughly 9.89x speed up
+
+Update 2022-05-31:
+
+Ran indexing 100.000 messages again:
+```
+db2 1.1.0: 5.646s
+db2 4.1.3: 4.517s
+```
+
+Roughly 20% faster
+
+Note 1.1.0 is a bit slower than 0.5, but probably also with less bugs
+:)
